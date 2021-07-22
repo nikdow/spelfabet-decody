@@ -7,7 +7,8 @@ function decody_editor( $atts )
     $tags = get_tags( array(
             'taxonomy' => 'schema',
             'orderby' => 'name'
-    ))
+    ));
+    wp_enqueue_style('editor_shortcode');
     ?>
         <div id="decody_editor">
             <textarea name="editor" placeholder="Enter or paste your text here"></textarea><br/>
@@ -23,4 +24,8 @@ function decody_editor( $atts )
         </div>
     <?php
     return ob_get_clean();
+
+    function register_css(){
+        wp_register_style('editor_shortcode', plugins_url('editor_shortcode', __FILE__));
+    }
 }

@@ -27,7 +27,7 @@ function add_to_menu(){
 }
 require_once plugin_dir_path( __FILE__ ) . 'decody_includes.php';
 require_once plugin_dir_path( __FILE__ ) . 'uploads.php';
-require_once plugin_dir_path( __FILE__ ) . 'editor_shortcode.php';
+require_once plugin_dir_path( __FILE__ ) . 'editor_shortcode/editor_shortcode.php';
 function spelfabet_decody(){
     ?>
     <div class="wrap">
