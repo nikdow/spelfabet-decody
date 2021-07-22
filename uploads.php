@@ -84,7 +84,7 @@ require_once( ABSPATH . 'wp-admin/includes/file.php');
 require_once( ABSPATH . 'wp-includes/capabilities.php');
 require_once( ABSPATH . 'wp-includes/pluggable.php');
 require_once( ABSPATH . 'wp-admin/includes/taxonomy.php');
-require_once plugin_dir_path( __FILE__ ) . 'decody-includes.php';
+require_once plugin_dir_path( __FILE__ ) . 'decody_includes.php';
 add_action( 'admin_post_decody_upload', 'handle_upload' );
 function handle_upload()
 {

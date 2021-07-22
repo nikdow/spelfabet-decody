@@ -25,7 +25,7 @@ function add_to_menu(){
     add_submenu_page( 'spelfabet_decody', 'Teaching Level HFW', 'Schema HFW', 'publish_posts', 'edit.php?post_type=schema_hfw', null, 60);
     add_submenu_page( 'spelfabet_decody', 'Teaching Level Descriptions', 'Schema Descriptions', 'publish_posts', 'edit.php?post_type=schema_levels', null, 70);
 }
-require_once plugin_dir_path( __FILE__ ) . 'decody-includes.php';
+require_once plugin_dir_path( __FILE__ ) . 'decody_includes.php';
 require_once plugin_dir_path( __FILE__ ) . 'uploads.php';
 function spelfabet_decody(){
     ?>
@@ -41,7 +41,8 @@ function spelfabet_decody(){
 
 add_action( 'init', 'create_spelfabet_decody');
 function create_spelfabet_decody(){
-    require_once plugin_dir_path( __FILE__ ) . 'post-types.php';
+    require_once plugin_dir_path( __FILE__ ) . 'post_types.php';
+    require_once plugin_dir_path( __FILE__ ) . 'editor_shortcode.php';
 }
 /*
  * default column ordering
