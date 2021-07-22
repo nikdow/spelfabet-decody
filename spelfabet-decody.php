@@ -27,6 +27,7 @@ function add_to_menu(){
 }
 require_once plugin_dir_path( __FILE__ ) . 'decody_includes.php';
 require_once plugin_dir_path( __FILE__ ) . 'uploads.php';
+require_once plugin_dir_path( __FILE__ ) . 'editor_shortcode.php';
 function spelfabet_decody(){
     ?>
     <div class="wrap">
@@ -42,7 +43,6 @@ function spelfabet_decody(){
 add_action( 'init', 'create_spelfabet_decody');
 function create_spelfabet_decody(){
     require_once plugin_dir_path( __FILE__ ) . 'post_types.php';
-    require_once plugin_dir_path( __FILE__ ) . 'editor_shortcode.php';
 }
 /*
  * default column ordering
