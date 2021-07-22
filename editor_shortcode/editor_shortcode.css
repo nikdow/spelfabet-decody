@@ -12,6 +12,9 @@ div#decody_editor button {
   margin-bottom: 1em;
 }
 
+div#results {
+  border: #333, 1px, solid;
+}
 div#results .warn {
   color: red;
 }
