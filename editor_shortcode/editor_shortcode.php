@@ -35,5 +35,5 @@ function register_editor_shortcode_css(){
     wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.3');
 }
 function register_editor_shortcode_js(){
-    wp_register_script('editor_shortcode', plugins_url( 'editor_shortcode.js', __FILE__), array(), '0.9');
+    wp_register_script('editor_shortcode', plugins_url( 'editor_shortcode.js', __FILE__), array(), '0.9.1');
 }
