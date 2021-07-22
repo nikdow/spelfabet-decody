@@ -16,7 +16,7 @@ function decody_editor( $atts )
     ?>
         <form name="decody_editor">
             <div id="decody_editor">
-                <textarea name="editor" placeholder="Enter or paste your text here"></textarea><br/>
+                <div contenteditable="true" name="editor" placeholder="Enter or paste your text here"></div><br/>
                 <select name="schema">
                     <option value="">Select Schema</option>
                     <?php
@@ -24,7 +24,7 @@ function decody_editor( $atts )
                         ?><option value="<?=$tag->name?>"><?=$tag->name?></option><?php
                     }
                     ?>
-                </select><br/>
+                </select>
                 <button type="button" onclick="update()">check it out</button><br/>
             </div>
         </form>
