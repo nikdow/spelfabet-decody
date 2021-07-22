@@ -9,16 +9,18 @@ function decody_editor( $atts )
             'orderby' => 'name'
     ))
     ?>
-    <textarea name="editor" placeholder="Enter or paste your text here"></textarea>
-    <button type="button" onclick="update()">check it out</button>
-    <select name="schema">
-        <option value="">Select Schema</option>
-        <?php
-        foreach( $tags as $tag ){
-            ?><option value="<?=$tag->name?>"><?=$tag->name?></option><?php
-        }
-        ?>
-    </select>
+        <div id="decody_editor">
+            <textarea name="editor" placeholder="Enter or paste your text here"></textarea><br/>
+            <select name="schema">
+                <option value="">Select Schema</option>
+                <?php
+                foreach( $tags as $tag ){
+                    ?><option value="<?=$tag->name?>"><?=$tag->name?></option><?php
+                }
+                ?>
+            </select><br/>
+            <button type="button" onclick="update()">check it out</button><br/>
+        </div>
     <?php
     return ob_get_clean();
 }
