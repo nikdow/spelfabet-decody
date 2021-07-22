@@ -1,6 +1,6 @@
 <?php
 
-add_action('wp-enqueue_scripts', 'register_css');
+add_action('wp-enqueue_scripts', 'register_editor_shortcode_css');
 add_shortcode('decody_editor', 'decody_editor');
 
 function decody_editor( $atts )
@@ -32,6 +32,6 @@ function decody_editor( $atts )
 
 
 }
-function register_css(){
-    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.0', 'screen' );
+function register_editor_shortcode_css(){
+    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.0');
 }
