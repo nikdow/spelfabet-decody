@@ -9,7 +9,7 @@
  */
 
 function spelfabet_decody_enqueue_scripts(){
-    wp_enqueue_style('spelfabet_decody', plugins_url('spelfabet-decody/css/spelfabet-decody.css' ) );
+    wp_enqueue_style('spelfabet_decody', plugins_url('css/spelfabet-decody.css', __FILE__ ) );
 }
 add_action( 'admin_enqueue_scripts', 'spelfabet_decody_enqueue_scripts' );
 /*
