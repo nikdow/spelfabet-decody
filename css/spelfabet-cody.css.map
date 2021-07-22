@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACI,6BAAE;EACE,aAAa,EAAE,GAAG;AAEtB,2CAAe;EACX,OAAO,EAAE,KAAK;EACd,aAAa,EAAE,GAAG;AAEtB,yCAAc;EACV,UAAU,EAAE,GAAG;EACf,4CAAE;IACE,eAAe,EAAE,QAAQ;IACzB,MAAM,EAAE,eAAe;IACvB,MAAM,EAAE,CAAC",
+"sources": ["spelfabet-cody.scss"],
+"names": [],
+"file": "spelfabet-cody.css"
+}

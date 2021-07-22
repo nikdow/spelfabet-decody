@@ -1,0 +1,13 @@
+div.spelfabet_cody_uploads h1 {
+  margin-bottom: 2em; }
+div.spelfabet_cody_uploads ul.vertical > li {
+  display: block;
+  margin-bottom: 1em; }
+div.spelfabet_cody_uploads table.bordered {
+  margin-top: 3em; }
+  div.spelfabet_cody_uploads table.bordered td {
+    border-collapse: collapse;
+    border: black 1px solid;
+    margin: 0; }
+
+/*# sourceMappingURL=spelfabet-cody.css.map */
