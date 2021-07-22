@@ -51,6 +51,7 @@ function editor_parse_text(){
     foreach( $words as $word ){
         $isOdd = $parity % 2 === 1;
         $output[] = ($isOdd ? "<span class='warn'>" : "") . $word . ( $isOdd ? "</span>" : "");
+        $parity = 1 - $parity;
     }
     echo implode( " ", $output );
     wp_die();
