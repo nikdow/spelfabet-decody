@@ -1,4 +1,6 @@
 <?php
+
+add_action('wp-enqueue_scripts', 'register_css');
 add_shortcode('decody_editor', 'decody_editor');
 
 function decody_editor( $atts )
@@ -25,7 +27,8 @@ function decody_editor( $atts )
     <?php
     return ob_get_clean();
 
-    function register_css(){
-        wp_register_style('editor_shortcode', plugins_url('editor_shortcode', __FILE__));
-    }
+
+}
+function register_css(){
+    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__));
 }
