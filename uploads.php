@@ -1,22 +1,22 @@
 <?php
 /*
- * Spelfabet Cody uploads page
+ * Spelfabet Decody uploads page
  */
-add_action( 'admin_menu', 'spelfabet_cody_menu');
+add_action( 'admin_menu', 'spelfabet_decody_menu');
 
 // https://developer.wordpress.org/reference/functions/_wp_handle_upload/
 
-function spelfabet_cody_menu(){
-    add_submenu_page( 'spelfabet_cody', "Spelfabet Cody Uploads", 'Uploads', 'publish_posts', 'spelfabet_cody_uploads', 'spelfabet_cody_uploads', 55  );
+function spelfabet_decody_menu(){
+    add_submenu_page( 'spelfabet_decody', "Spelfabet Decody Uploads", 'Uploads', 'publish_posts', 'spelfabet_decody_uploads', 'spelfabet_decody_uploads', 55  );
 }
 
-function spelfabet_cody_uploads(){
+function spelfabet_decody_uploads(){
 
     ?>
-    <div class="spelfabet_cody_uploads">
-        <h1>Spelfabet Cody Uploads page</h1>
+    <div class="spelfabet_decody_uploads">
+        <h1>Spelfabet Decody Uploads page</h1>
         <form name="upload_CSV" enctype="multipart/form-data" method="post" action="/wp-admin/admin-post.php">
-            <input name="action" type="hidden" value="cody_upload"/>
+            <input name="action" type="hidden" value="decody_upload"/>
             <label for="upload_CSV">Upload Data File</label>
             <input id="upload_CSV" type="file" name="upload_CSV" />
             <br/>
@@ -84,13 +84,13 @@ require_once( ABSPATH . 'wp-admin/includes/file.php');
 require_once( ABSPATH . 'wp-includes/capabilities.php');
 require_once( ABSPATH . 'wp-includes/pluggable.php');
 require_once( ABSPATH . 'wp-admin/includes/taxonomy.php');
-require_once plugin_dir_path( __FILE__ ) . 'cody-includes.php';
-add_action( 'admin_post_cody_upload', 'handle_upload' );
+require_once plugin_dir_path( __FILE__ ) . 'decody-includes.php';
+add_action( 'admin_post_decody_upload', 'handle_upload' );
 function handle_upload()
 {
     $error = new WP_Error();
     if( empty($_FILES['upload_CSV']['name']) ) $error->add('nofile', 'No file uploaded');
-    if( ! current_user_can('publish_posts') ) $error->add( 'privilege', 'Role publish_posts is required to upload a Cody spreadsheet');
+    if( ! current_user_can('publish_posts') ) $error->add( 'privilege', 'Role publish_posts is required to upload a Decody spreadsheet');
     if( ! $error->has_errors() ) {
         $upload = wp_handle_upload($_FILES['upload_CSV'], ['test_form' => false]);
         if (isset($upload['error'])) {
@@ -115,7 +115,7 @@ function handle_upload()
             </li>
         </ul>
         <P>
-            <a href="/wp-admin/admin.php?page=spelfabet_cody_uploads">Click here to try again</a>
+            <a href="/wp-admin/admin.php?page=spelfabet_decody_uploads">Click here to try again</a>
         </P>
         <?php
         return;

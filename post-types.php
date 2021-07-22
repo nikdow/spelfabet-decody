@@ -1,7 +1,7 @@
 <?php
 /* general */
-add_filter( "manage_edit-word_pgc_sortable_columns", 'cody_sort_columns');
-function cody_sort_columns( $columns ){
+add_filter( "manage_edit-word_pgc_sortable_columns", 'decody_sort_columns');
+function decody_sort_columns( $columns ){
     return [];
 }
 add_filter('manage_posts_custom_column', 'excerpt_column', 10, 2);
@@ -13,8 +13,8 @@ function excerpt_column($column_name, $post_ID){
 /*
  * label for title field on custom posts
  */
-add_filter('enter_title_here', 'spelfabet_cody_enter_title');
-function spelfabet_cody_enter_title( $input ) {
+add_filter('enter_title_here', 'spelfabet_decody_enter_title');
+function spelfabet_decody_enter_title( $input ) {
     global $post_type;
     switch ( $post_type ){
         case 'word_pgc':
