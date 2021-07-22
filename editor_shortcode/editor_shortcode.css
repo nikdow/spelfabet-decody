@@ -1,6 +1,13 @@
 div#decody_editor textarea {
   height: 20em;
   width: 95%;
+  margin-bottom: 1em;
+}
+div#decody_editor select {
+  margin-bottom: 1em;
+}
+div#decody_editor button {
+  margin-bottom: 1em;
 }
 
 /*# sourceMappingURL=editor_shortcode.css.map */

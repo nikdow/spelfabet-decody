@@ -24,9 +24,6 @@ function decody_editor( $atts )
             </select><br/>
             <button type="button" onclick="update()">check it out</button><br/>
         </div>
-    <div>
-        [plugins_url = <?=plugins_url('editor_shortcode.css', __FILE__)?>]
-    </div>
     <?php
     return ob_get_clean();
 
