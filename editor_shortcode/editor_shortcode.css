@@ -12,4 +12,8 @@ div#decody_editor button {
   margin-bottom: 1em;
 }
 
+div#results .warn {
+  color: red;
+}
+
 /*# sourceMappingURL=editor_shortcode.css.map */

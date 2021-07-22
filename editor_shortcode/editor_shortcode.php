@@ -16,7 +16,7 @@ function decody_editor( $atts )
     ?>
         <form name="decody_editor">
             <div id="decody_editor">
-                <div contenteditable="true" name="editor" placeholder="Enter or paste your text here"></div><br/>
+                <textarea name="editor" placeholder="Enter or paste your text here"></textarea><br/>
                 <select name="schema">
                     <option value="">Select Schema</option>
                     <?php
@@ -28,12 +28,14 @@ function decody_editor( $atts )
                 <button type="button" onclick="update()">check it out</button><br/>
             </div>
         </form>
+        <h3>Results:</h3>
+        <div id="results"></div>
     <?php
     return ob_get_clean();
 }
 function register_editor_shortcode_css(){
-    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.3');
+    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.4');
 }
 function register_editor_shortcode_js(){
-    wp_register_script('editor_shortcode', plugins_url( 'editor_shortcode.js', __FILE__), array(), '0.9.1');
+    wp_register_script('editor_shortcode', plugins_url( 'editor_shortcode.js', __FILE__), array(), '0.9.2');
 }
