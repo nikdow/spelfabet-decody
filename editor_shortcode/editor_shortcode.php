@@ -14,22 +14,22 @@ function decody_editor( $atts )
     wp_enqueue_script('editor_shortcode');
     ob_start();
     ?>
-        <div id="decody_editor">
-            <textarea name="editor" placeholder="Enter or paste your text here"></textarea><br/>
-            <select name="schema">
-                <option value="">Select Schema</option>
-                <?php
-                foreach( $tags as $tag ){
-                    ?><option value="<?=$tag->name?>"><?=$tag->name?></option><?php
-                }
-                ?>
-            </select><br/>
-            <button type="button" onclick="update()">check it out</button><br/>
-        </div>
+        <form name="decody_editor">
+            <div id="decody_editor">
+                <textarea name="editor" placeholder="Enter or paste your text here"></textarea><br/>
+                <select name="schema">
+                    <option value="">Select Schema</option>
+                    <?php
+                    foreach( $tags as $tag ){
+                        ?><option value="<?=$tag->name?>"><?=$tag->name?></option><?php
+                    }
+                    ?>
+                </select><br/>
+                <button type="button" onclick="update()">check it out</button><br/>
+            </div>
+        </form>
     <?php
     return ob_get_clean();
-
-
 }
 function register_editor_shortcode_css(){
     wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.3');
