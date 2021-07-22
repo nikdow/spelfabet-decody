@@ -4,9 +4,11 @@ div#decody_editor textarea {
   margin-bottom: 1em;
 }
 div#decody_editor select {
+  display: block;
   margin-bottom: 1em;
 }
 div#decody_editor button {
+  display: block;
   margin-bottom: 1em;
 }
 
