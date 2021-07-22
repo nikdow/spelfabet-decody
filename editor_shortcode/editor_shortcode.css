@@ -13,10 +13,11 @@ div#decody_editor button {
 }
 
 div#results {
-  border: 1px solid #333;
+  border: 1px solid #CCC;
 }
 div#results .warn {
   color: red;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=editor_shortcode.css.map */
