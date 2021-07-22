@@ -1,4 +1,7 @@
 function update(){
     const elem = document.forms['decody_editor'].elements['editor'];
-    jQuery('#results').html("<span class='warn'>Warning</span> <span>No style</span> "  +  elem.value)
+    const data = {'action': 'parse_text', 'text': elem.value};
+    jQuery.post( ajax_object.ajax_url, data, function( response ){
+        jQuery('#results').html(response);
+    })
 }
