@@ -34,7 +34,7 @@ function decody_editor( $atts )
     return ob_get_clean();
 }
 function register_editor_shortcode_css(){
-    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.4');
+    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.5');
 }
 function register_editor_shortcode_js(){
     wp_register_script('editor_shortcode', plugins_url( 'editor_shortcode.js', __FILE__), array('jquery'), '0.9.8');
