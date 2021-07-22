@@ -33,5 +33,5 @@ function decody_editor( $atts )
 
 }
 function register_css(){
-    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__));
+    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.0', 'screen' );
 }
