@@ -1,6 +1,7 @@
 <?php
 
 add_action('wp_enqueue_scripts', 'register_editor_shortcode_css');
+add_action('wp_enqueue_scripts', 'register_editor_shortcode_js');
 add_shortcode('decody_editor', 'decody_editor');
 
 function decody_editor( $atts )
@@ -10,6 +11,7 @@ function decody_editor( $atts )
             'orderby' => 'name'
     ));
     wp_enqueue_style('editor_shortcode');
+    wp_enqueue_script('editor_shortcode');
     ob_start();
     ?>
         <div id="decody_editor">
@@ -31,4 +33,7 @@ function decody_editor( $atts )
 }
 function register_editor_shortcode_css(){
     wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.3');
+}
+function register_editor_shortcode_js(){
+    wp_register_script('editor_shortcode', plugins_url( 'editor_shortcode.js', __FILE__), array(), '0.9');
 }
