@@ -157,6 +157,8 @@ function word_structure_edit_columns($columns) {
 }
 /*
  * schema-pgc
+ * for all but one of the schema post types we don't use excerpt because it isn't searchable
+ * we can use post_name (normally the slug) because these posts are never displayed to the front-end
  */
 $labels = array(
     'name' => _x('Schema PGC', 'post type general name'),
@@ -195,7 +197,7 @@ register_post_type( 'schema_pgc',
         'menu_icon' => "dashicons-controls-repeat",
         'hierarchical' => false,
         'rewrite' => false,
-        'supports'=> array('title', 'excerpt' ),
+        'supports'=> array('title'),
         'show_in_menu' => false,
         'show_in_nav_menus' => false,
         'can_export' => false,
@@ -207,7 +209,7 @@ function schema_pgc_edit_columns($columns) {
     $columns = array(
         "cb" => '<input type="checkbox" />',
         "title" => "Teaching Level",
-        "excerpt" => "Phoneme Grapheme correspondence",
+        "post_name" => "Phoneme Grapheme correspondence",
         "schema" => 'Schema'
     );
     return $columns;
@@ -253,7 +255,7 @@ register_post_type( 'schema_structure',
         'menu_icon' => "dashicons-controls-repeat",
         'hierarchical' => false,
         'rewrite' => false,
-        'supports'=> array('title', 'excerpt' ),
+        'supports'=> array('title'),
         'show_in_menu' => false,
         'show_in_nav_menus' => false,
         'can_export' => false,
@@ -265,7 +267,7 @@ function schema_structure_edit_columns($columns) {
     $columns = array(
         "cb" => '<input type="checkbox" />',
         "title" => "Teaching Level",
-        "excerpt" => "Syllable Structure",
+        "post_name" => "Syllable Structure",
         "schema" => 'Schema'
     );
     return $columns;
@@ -311,7 +313,7 @@ register_post_type( 'schema_hfw',
         'menu_icon' => "dashicons-controls-repeat",
         'hierarchical' => false,
         'rewrite' => false,
-        'supports'=> array('title', 'excerpt' ),
+        'supports'=> array('title'),
         'show_in_menu' => false,
         'show_in_nav_menus' => false,
         'can_export' => false,
@@ -323,7 +325,7 @@ function schema_hfw_edit_columns($columns) {
     $columns = array(
         "cb" => '<input type="checkbox" />',
         "title" => "Teaching Level",
-        "excerpt" => "High Frequency Word",
+        "post_name" => "High Frequency Word",
         "schema" => 'Schema'
     );
     return $columns;
@@ -331,6 +333,7 @@ function schema_hfw_edit_columns($columns) {
 add_action( 'manage_schema_hfw_posts_custom_column', 'add_column', 10, 2);
 /*
  * schema-levels
+ * Note here we use excerpt (just like in post_type s word_pgc and word_structure) in case it is not unique, and anyhow we never search on it
  */
 $labels = array(
     'name' => _x('Schema Level Descriptions', 'post type general name'),

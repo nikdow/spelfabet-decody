@@ -54,15 +54,16 @@ function order_decody( $query ){
         case 'schema_pgc':
         case 'schema_structure':
         case 'schema_hfw':
+            $query->set('orderby', ['ABS(title)','post_name']);
+            break;
         case 'schema_levels':
             $query->set('orderby', ['ABS(title)','excerpt']);
-            $query->set( 'order', 'ASC');
             break;
         case 'word_pgc':
         case 'word_structure':
             $query->set('orderby', 'title'); // adding 'excerpt' here breaks the sort order ???
-            $query->set( 'order', 'ASC');
             break;
     }
+    $query->set( 'order', 'ASC');
 
 }

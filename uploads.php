@@ -138,9 +138,9 @@ function handle_upload()
                 $payload = $fields[1];
                 switch ( $post_type ){
                     case "word_pgc":
-                        $posts = get_posts(['numberposts' => 10, 'post_type' => $post_type, 'exact' => true, 'title' => $word]);
+                        $posts = get_posts(['numberposts' => 10, 'post_type' => $post_type, 'exact' => true, 'title' => $word]); // find all the graphemes in this word
                         $post_filtered = array_filter($posts, function ($post) use ($payload) {
-                            return strtolower($post->post_excerpt) === strtolower($payload);
+                            return strtolower($post->post_excerpt) === strtolower($payload); // narrow it down to the specific grapheme
                         });
                         if( $delete && count($post_filtered) > 0 ){
                             $lines_read++;
@@ -179,22 +179,25 @@ function handle_upload()
             case "schema_levels":
                 $level = $fields[0];
                 $payload = $fields[1];
-                $posts = get_posts(['numberposts' => 100, 'post_type' => $post_type, 'exact' => true, 'title' => $level]);
-                $post_filtered = array_filter($posts, function ($post) use ($payload, $schema) {
-                    $term = get_the_terms( $post, 'schema');
-                    return strtolower($post->post_excerpt) === strtolower($payload) && $schema === $term[0]->name ;
-                });
-                if (count($post_filtered) === 1) {
-                    if( $delete ) {
+                if( $delete ) {
+                    $args = ['numberposts' => 100, 'post_type' => $post_type, 'exact' => true, 'title' => $level, 'tag' => $schema];
+                    if ($post_type !== 'schema_levels') $args['post_name__in'] = [$payload];
+                    $posts = get_posts($args);
+                    if ($post_type === 'schema_levels') {
+                        $post_filtered = array_filter($posts, function ($post) use ($payload, $schema) {
+                            $term = get_the_terms($post, 'schema');
+                            return strtolower($post->post_excerpt) === strtolower($payload);
+                        });
+                        $posts = $post_filtered;
+                    }
+                    if (count($posts) === 1) {
                         $lines_read++;
-                        foreach ( $post_filtered as $post ) { // index although numeric may not start at 0
+                        foreach ($posts as $post) { // index although numeric may not start at 0
                             wp_delete_post($post->ID, true);
                         }
                     }
-                    continue;
-                }
-                if( ! $delete ) {
-                    $post = ['post_title' => $level, 'post_excerpt' => $payload, 'post_type' => $post_type, 'post_status' => 'publish', 'tax_input' => ['schema' => $schema]];
+                } else {
+                    $post = ['post_title' => $level, 'post_name' => $payload, 'post_type' => $post_type, 'post_status' => 'publish', 'tax_input' => ['schema' => $schema]];
                     wp_insert_post($post, false, false);
                     $lines_read++;
                 }
