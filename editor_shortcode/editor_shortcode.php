@@ -29,7 +29,7 @@ function decody_editor( $atts )
             </div>
         </form>
         <h3>Results:</h3>
-        <div id="results"></div>
+        <div id="decody_results"></div>
     <?php
     return ob_get_clean();
 }

@@ -12,12 +12,12 @@ div#decody_editor button {
   margin-bottom: 1em;
 }
 
-div#results {
+div#decody_results {
   border: 1px solid #CCC;
   width: 95%;
   padding-left: 0.5em;
 }
-div#results .warn {
+div#decody_results .warn {
   color: red;
   font-weight: bold;
 }
