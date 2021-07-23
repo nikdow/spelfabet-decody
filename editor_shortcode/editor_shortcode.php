@@ -43,6 +43,7 @@ function register_editor_shortcode_js(){
 add_action( 'wp_ajax_parse_text', 'editor_parse_text');
 add_action( 'wp_ajax_nopriv_parse_text', 'editor_parse_text');
 function editor_parse_text(){
+    $schema = $_POST['schema'];
     global $wpdb;
     $text = $_POST['text'];
     $words = explode(" ", $text);
