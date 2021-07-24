@@ -14,20 +14,19 @@ function decody_editor( $atts )
     wp_enqueue_script('editor_shortcode');
     ob_start();
     ?>
-        <form name="decody_editor">
-            <div id="decody_editor">
-                <textarea name="editor" placeholder="Enter or paste your text here"></textarea><br/>
-                <select name="schema">
-                    <option value="">Select Schema</option>
-                    <?php
-                    foreach( $tags as $tag ){
-                        ?><option value="<?=$tag->name?>"><?=$tag->name?></option><?php
-                    }
-                    ?>
-                </select>
-                <button type="button" onclick="update()">check it out</button><br/>
-            </div>
-        </form>
+        <div id="decody_editor">
+            <textarea id="editor" placeholder="Enter or paste your text here"></textarea><br/>
+            <select id="schema">
+                <option value="">Select Schema</option>
+                <?php
+                foreach( $tags as $tag ){
+                    ?><option value="<?=$tag->term_id?>"><?=$tag->name?></option><?php
+                }
+                ?>
+            </select>
+            <input id="target_level" type="number" placeholder="Target level"><span>Leave blank for no target</span>
+            <button type="button" onclick="update()">check it out</button><br/>
+        </div>
         <h3>Results:</h3>
         <div id="decody_results"></div>
     <?php
@@ -43,16 +42,66 @@ function register_editor_shortcode_js(){
 add_action( 'wp_ajax_parse_text', 'editor_parse_text');
 add_action( 'wp_ajax_nopriv_parse_text', 'editor_parse_text');
 function editor_parse_text(){
+	global $wpdb;
     $schema = $_POST['schema'];
-    global $wpdb;
+    $sql = $wpdb->prepare( "SELECT `name` FROM $wpdb->terms WHERE term_id=%d", $schema);
+    $term_name = $wpdb->get_var( $sql );
+    $sql = $wpdb->prepare( "SELECT * FROM $wpdb->term_taxonomy WHERE term_id=%d", $schema );
+    $term_taxonomy = $wpdb->get_row( $sql );
+    $term_taxonomy_id = $term_taxonomy->term_taxonomy_id;
+    $taxonomy_name = $term_taxonomy->taxonomy;
     $text = $_POST['text'];
     $words = explode(" ", $text);
     $output = [];
-    $parity = 0;
     foreach( $words as $word ){
-        $isOdd = $parity % 2 === 1;
-        $output[] = array( 'warn' => $isOdd, 'word' => $word );
-        $parity = 1 - $parity;
+        $sql = $wpdb->prepare( "SELECT post_excerpt, post_type FROM wp_posts p " .
+            "WHERE `post_title`=%s " .
+            "AND `post_type` IN ('word_pgc', 'word_structure')",
+            $word);
+        $properties = $wpdb->get_results( $sql );
+        $pgcs = [];
+        $structure = false;
+        foreach( $properties as $property ){
+            switch( $property->post_type ) {
+                case 'word_pgc':
+                    $pgcs[] = $property->post_excerpt;
+                    break;
+                case 'word_structure':
+                    $structure = $property->post_excerpt;
+                    break;
+            }
+        }
+        // hfw
+        $sql = $wpdb->prepare( "SELECT post_title FROM wp_posts p " .
+            "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
+            "WHERE post_type='schema_hfw' AND post_excerpt=%s AND r.object_id IS NOT NULL;",
+            $term_taxonomy_id, $word);
+        $hfw_level = (int) $wpdb->get_var( $sql );
+        $pgc_level = false;
+        $structure_level = false;
+        if( count($pgcs)) {
+	        $sql        = "SELECT post_title FROM wp_posts p " .
+	                      "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
+	                      "WHERE post_type='schema_pgc' " .
+	                      "AND post_excerpt IN (" . implode( ",", array_fill( 0, count( $pgcs ), '%s' ) ) . ") " .
+	                      "AND r.object_id IS NOT NULL;";
+	        $query      = $wpdb->prepare( $sql, $term_taxonomy_id, ...$pgcs );
+	        $pgc_level  = 0;
+	        $pgc_levels = $wpdb->get_results( $query );
+	        foreach ( $pgc_levels as $p ) {
+		        $pgc_level = max( $pgc_level, (int) $p->post_title );
+	        }
+        }
+        if( $structure ) {
+	        $sql             = $wpdb->prepare( "SELECT post_title FROM wp_posts p " .
+	                                           "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
+	                                           "WHERE post_type='schema_structure' AND post_excerpt=%s " .
+	                                           "AND r.object_id IS NOT NULL;",
+		        $term_taxonomy_id, $structure );
+	        $structure_level = (int) $wpdb->get_var( $query );
+	        $level           = max( $pgc_level, $structure_level );
+        }
+        $output[] = array( 'level' => ($hfw_level ? $hfw_level : $level ), 'isHFW' =>boolval( $hfw_level), 'word' => $word, 'structure_level' => $structure_level, 'pgc_level' => $pgc_level );
     }
     $response = array( 'output' => $output, 'hardest' => 'antidisciplinarianestablishmentism', 'hard_level'=>65);
     wp_send_json( $response );

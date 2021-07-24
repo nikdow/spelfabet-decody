@@ -179,6 +179,14 @@ function handle_upload()
             case "schema_levels":
                 $level = $fields[0];
                 $payload = $fields[1];
+                if( $post_type === 'schema_pgc'){ // canonicalize
+                    preg_match('/([a-z]+):\s?([a-z]+)/', trim($payload), $matches);
+                    if( count( $matches ) < 3 ) {
+                        $payload = "";
+                    } else {
+	                    $payload = $matches[1] . ":" . $matches[2];
+                    }
+                }
                 $posts = get_posts(['numberposts' => 100, 'post_type' => $post_type, 'exact' => true, 'title' => $level]);
                 $post_filtered = array_filter($posts, function ($post) use ($payload, $schema) {
                     $term = get_the_terms( $post, 'schema');
@@ -194,7 +202,7 @@ function handle_upload()
                     continue;
                 }
                 if( ! $delete ) {
-                    $post = ['post_title' => $level, 'post_excerpt' => $payload, 'post_type' => $post_type, 'post_status' => 'publish', 'tax_input' => ['schema' => $schema]];
+                    $post = ['post_title' => trim($level), 'post_excerpt' => trim($payload), 'post_type' => $post_type, 'post_status' => 'publish', 'tax_input' => ['schema' => $schema]];
                     wp_insert_post($post, false, false);
                     $lines_read++;
                 }

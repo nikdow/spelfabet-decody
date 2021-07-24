@@ -11,6 +11,15 @@ div#decody_editor button {
   display: block;
   margin-bottom: 1em;
 }
+div#decody_editor input {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+div#decody_editor span {
+  display: inline-block;
+  font-size: 0.7em;
+  margin-left: 1em;
+}
 
 div#decody_results {
   border: 1px solid #CCC;

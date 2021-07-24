@@ -12,6 +12,15 @@ div#decody_editor{
     display: block;
     margin-bottom: 1em;
   }
+  input {
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+  span {
+    display: inline-block;
+    font-size: 0.7em;
+    margin-left: 1em;
+  }
 }
 div#decody_results{
   border: 1px solid #CCC;
