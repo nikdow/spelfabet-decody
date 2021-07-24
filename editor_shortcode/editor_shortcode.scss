@@ -23,9 +23,11 @@ div#decody_editor{
   }
 }
 div#decody_results{
-  border: 1px solid #CCC;
-  width: 95%;
-  padding-left: 0.5em;
+  div#decody_output {
+    border: 1px solid #CCC;
+    width: 95%;
+    padding-left: 0.5em;
+  }
   .warn { color: red; font-weight: bold }
   .no-level { font-size: 1.2em }
 }

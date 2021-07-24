@@ -21,7 +21,7 @@ div#decody_editor span {
   margin-left: 1em;
 }
 
-div#decody_results {
+div#decody_results div#decody_output {
   border: 1px solid #CCC;
   width: 95%;
   padding-left: 0.5em;
