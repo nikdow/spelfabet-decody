@@ -41,10 +41,10 @@ function decody_editor( $atts )
     return ob_get_clean();
 }
 function register_editor_shortcode_css(){
-    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.12');
+    wp_register_style('editor_shortcode', plugins_url('editor_shortcode.css', __FILE__), array(), '1.0.13');
 }
 function register_editor_shortcode_js(){
-    wp_register_script('editor_shortcode', plugins_url( 'editor_shortcode.js', __FILE__), array('jquery'), '0.9.11');
+    wp_register_script('editor_shortcode', plugins_url( 'editor_shortcode.js', __FILE__), array('jquery'), '0.9.12');
     wp_localize_script('editor_shortcode', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 }
 add_action( 'wp_ajax_parse_text', 'editor_parse_text');
