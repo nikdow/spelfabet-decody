@@ -16,7 +16,12 @@ function update(){
     }
     $.post( ajax_object.ajax_url, data, function( response ){
         let display = "";
-        response.output.forEach( word => display += "<span class='" + ( target_level && word.level > target_level ? 'warn' : '') + "'>" + word.word + "</span> " );
-        $('#decody_results').html(display);
+        response.output.forEach( word => {
+            let classes = [];
+            if(target_level && word.level !== false && word.level > target_level) classes.push('warn');
+            if( word.level === false ) classes.push( 'no-level' );
+            display += "<span class='" + classes.join(' ') + "'>" + word.word + "</span> "
+        });
+        $('#decody_output').html(display);
     }, 'json');
 }

@@ -30,5 +30,8 @@ div#decody_results .warn {
   color: red;
   font-weight: bold;
 }
+div#decody_results .no-level {
+  font-size: 1.2em;
+}
 
 /*# sourceMappingURL=editor_shortcode.css.map */

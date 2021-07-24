@@ -28,7 +28,15 @@ function decody_editor( $atts )
             <button type="button" onclick="update()">check it out</button><br/>
         </div>
         <h3>Results:</h3>
-        <div id="decody_results"></div>
+        <div id="decody_results">
+            <div id="decody_output"></div>
+            <div>
+                <ul>
+                    <li><span class="no-level">larger words</span> could not be found in this schema</li>
+                    <li><span class="warn">red words</span> exceed the level chosen</li>
+                </ul>
+            </div>
+        </div>
     <?php
     return ob_get_clean();
 }
@@ -98,9 +106,10 @@ function editor_parse_text(){
 	                                           "WHERE post_type='schema_structure' AND post_excerpt=%s " .
 	                                           "AND r.object_id IS NOT NULL;",
 		        $term_taxonomy_id, $structure );
-	        $structure_level = (int) $wpdb->get_var( $query );
+	        $structure_level = (int) $wpdb->get_var( $sql );
 	        $level           = max( $pgc_level, $structure_level );
         }
+        if( ! ( $pgc_level && $structure_level )) $level = false;
         $output[] = array( 'level' => ($hfw_level ? $hfw_level : $level ), 'isHFW' =>boolval( $hfw_level), 'word' => $word, 'structure_level' => $structure_level, 'pgc_level' => $pgc_level );
     }
     $response = array( 'output' => $output, 'hardest' => 'antidisciplinarianestablishmentism', 'hard_level'=>65);
