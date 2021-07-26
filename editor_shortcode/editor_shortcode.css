@@ -31,7 +31,10 @@ div#decody_results .warn {
   font-weight: bold;
 }
 div#decody_results .no-level {
-  font-size: 1.2em;
+  font-size: 1.6em;
+}
+div#decody_results .hfw {
+  font-style: italic;
 }
 
 /*# sourceMappingURL=editor_shortcode.css.map */

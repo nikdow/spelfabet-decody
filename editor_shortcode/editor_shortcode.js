@@ -20,6 +20,7 @@ function update(){
             let classes = [];
             if(target_level && word.level !== false && word.level > target_level) classes.push('warn');
             if( word.level === false ) classes.push( 'no-level' );
+            if( word.isHFW ) classes.push( 'hfw');
             display += "<span class='" + classes.join(' ') + "'>" + word.word + "</span> "
         });
         $('#decody_output').html(display);

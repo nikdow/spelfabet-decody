@@ -120,7 +120,7 @@ function handle_upload()
         <?php
         return;
     }
-    $delete = !! $_POST['delete'];
+    $delete = array_key_exists( 'delete', $_POST ) && !! $_POST['delete'];
     /*
      * read the file
      */

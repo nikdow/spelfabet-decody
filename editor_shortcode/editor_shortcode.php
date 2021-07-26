@@ -32,8 +32,9 @@ function decody_editor( $atts )
             <div id="decody_output"></div>
             <div>
                 <ul>
-                    <li><span class="no-level">larger words</span> could not be found in this schema</li>
+                    <li><span class="no-level">larger words</span> could not be found in this teaching method</li>
                     <li><span class="warn">red words</span> exceed the level chosen</li>
+                    <li><span class="hfw">italicised words</span> are High Frequency Words in this teaching method</li>
                 </ul>
             </div>
         </div>
