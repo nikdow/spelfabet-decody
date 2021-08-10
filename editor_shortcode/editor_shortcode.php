@@ -65,7 +65,8 @@ function editor_parse_text(){
     foreach( $words as $word ){
         $sql = $wpdb->prepare( "SELECT post_excerpt, post_type FROM wp_posts p " .
             "WHERE `post_title`=%s " .
-            "AND `post_type` IN ('word_pgc', 'word_structure')",
+            "AND `post_type` IN ('word_pgc', 'word_structure') " .
+            "AND `post_status`='publish'",
             $word);
         $properties = $wpdb->get_results( $sql );
         $pgcs = [];
@@ -83,7 +84,7 @@ function editor_parse_text(){
         // hfw
         $sql = $wpdb->prepare( "SELECT post_title FROM wp_posts p " .
             "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
-            "WHERE post_type='schema_hfw' AND post_excerpt=%s AND r.object_id IS NOT NULL;",
+            "WHERE post_type='schema_hfw' AND post_excerpt=%s AND r.object_id IS NOT NULL AND `post_status`='publish';",
             $term_taxonomy_id, $word);
         $hfw_level = (int) $wpdb->get_var( $sql );
         $pgc_level = false;
@@ -93,7 +94,7 @@ function editor_parse_text(){
 	                      "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
 	                      "WHERE post_type='schema_pgc' " .
 	                      "AND post_excerpt IN (" . implode( ",", array_fill( 0, count( $pgcs ), '%s' ) ) . ") " .
-	                      "AND r.object_id IS NOT NULL;";
+	                      "AND r.object_id IS NOT NULL AND `post_status`='publish';";
 	        $query      = $wpdb->prepare( $sql, $term_taxonomy_id, ...$pgcs );
 	        $pgc_level  = 0;
 	        $pgc_levels = $wpdb->get_results( $query );
@@ -104,7 +105,7 @@ function editor_parse_text(){
         if( $structure ) {
 	        $sql             = $wpdb->prepare( "SELECT post_title FROM wp_posts p " .
 	                                           "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
-	                                           "WHERE post_type='schema_structure' AND post_excerpt=%s " .
+	                                           "WHERE post_type='schema_structure' AND post_excerpt=%s AND `post_status`='publish' " .
 	                                           "AND r.object_id IS NOT NULL;",
 		        $term_taxonomy_id, $structure );
 	        $structure_level = (int) $wpdb->get_var( $sql );
