@@ -59,7 +59,7 @@ function editor_parse_text(){
     $term_taxonomy = $wpdb->get_row( $sql );
     $term_taxonomy_id = $term_taxonomy->term_taxonomy_id;
     $taxonomy_name = $term_taxonomy->taxonomy;
-    $text = $_POST['text'];
+    $text = stripslashes($_POST['text']);
     $words = explode(" ", $text);
     $output = [];
     foreach( $words as $word ){
