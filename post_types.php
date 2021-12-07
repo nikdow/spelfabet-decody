@@ -108,7 +108,7 @@ function word_pgc_sort_column($columns){
   $columns['modified'] = 'modified';
   return $columns;
 }
-add_action('manage_pgc_edit_custom_column', 'modified_column_display', 10, 2);
+add_action('manage_word_pgc_custom_column', 'modified_column_display', 10, 2);
 function modified_column_display($column_name, $post_id){
   if( $column_name != "modified") return;
   echo get_the_modified_date();
