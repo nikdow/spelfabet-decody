@@ -210,7 +210,8 @@ function schema_pgc_edit_columns($columns) {
         "cb" => '<input type="checkbox" />',
         "title" => "Teaching Level",
         "excerpt" => "Phoneme Grapheme correspondence",
-        "schema" => 'Schema'
+        "schema" => 'Schema',
+        "date" => "Published"
     );
     return $columns;
 }
@@ -268,7 +269,8 @@ function schema_structure_edit_columns($columns) {
         "cb" => '<input type="checkbox" />',
         "title" => "Teaching Level",
         "excerpt" => "Syllable Structure",
-        "schema" => 'Schema'
+        "schema" => 'Schema',
+        "date" => "Published"
     );
     return $columns;
 }
@@ -326,7 +328,8 @@ function schema_hfw_edit_columns($columns) {
         "cb" => '<input type="checkbox" />',
         "title" => "Teaching Level",
         "excerpt" => "High Frequency Word",
-        "schema" => 'Schema'
+        "schema" => 'Schema',
+        "date" => "Published"
     );
     return $columns;
 }
@@ -384,7 +387,8 @@ function schema_levels_edit_columns($columns) {
         "cb" => '<input type="checkbox" />',
         "title" => "Teaching Level",
         "excerpt" => "Description",
-        "schema" => 'Schema'
+        "schema" => 'Schema',
+        "date" => "Published"
     );
     return $columns;
 }
