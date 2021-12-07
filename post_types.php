@@ -99,19 +99,14 @@ function word_pgc_edit_columns($columns) {
         "cb" => '<input type="checkbox" />', // otherwise, no checkbox in the list of posts
         "title" => "Word",
         "excerpt" => "PGC",
-        "modified" => "Modified"
+        "date" => "Modified"
     );
     return $columns;
 }
-add_filter ("manage_edit-word_pgc_sortable_columns", "word_pgc_sort_column");
+add_filter ("manage_word_pgc_sortable_columns", "word_pgc_sort_column");
 function word_pgc_sort_column($columns){
-  $columns['modified'] = 'modified';
+  $columns['date'] = 'modified';
   return $columns;
-}
-add_action('manage_word_pgc_custom_column', 'modified_column_display', 10, 2);
-function modified_column_display($column_name, $post_id){
-  if( $column_name != "modified") return;
-  echo get_the_modified_date();
 }
 /*
  * word-structure
