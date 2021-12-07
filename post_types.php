@@ -98,7 +98,8 @@ function word_pgc_edit_columns($columns) {
     $columns = array(
         "cb" => '<input type="checkbox" />', // otherwise, no checkbox in the list of posts
         "title" => "Word",
-        "excerpt" => "PGC"
+        "excerpt" => "PGC",
+        "date" => "updated"
     );
     return $columns;
 }

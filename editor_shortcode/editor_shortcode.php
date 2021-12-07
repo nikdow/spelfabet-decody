@@ -21,7 +21,7 @@ function decody_editor( $atts )
                     <option value="">Select Schema</option>
                     <?php
                     foreach( $tags as $tag ){
-                        ?><option value="<?=$tag->name?>"><?=$tag->name?></option><?php
+                        ?><option value="<?=$tag->term_id?>"><?=$tag->name?></option><?php
                     }
                     ?>
                 </select>
