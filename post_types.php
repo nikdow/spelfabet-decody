@@ -105,7 +105,7 @@ function word_pgc_edit_columns($columns) {
 }
 add_filter ("manage_edit-word_pgc_sortable_columns", "word_pgc_sort_column");
 function word_pgc_sort_column($columns){
-  $columns['modified_list'] = 'modified_list';
+  $columns['modified_list'] = 'date';
   return $columns;
 }
 add_action( 'manage_word_pgc_custom_column', 'modified_column_display', 10, 2 );
