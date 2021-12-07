@@ -103,11 +103,23 @@ function word_pgc_edit_columns($columns) {
     );
     return $columns;
 }
+add_action( 'manage_word_pgc_custom_column', 'modified_column_display', 10, 2 );
+function modified_column_display( $column_name, $post_id ) {
+  if ( 'modified_list' != $column_name )
+    return;
+  echo the_modified_date();
+}
 add_filter ("manage_edit-word_pgc_sortable_columns", "word_pgc_sort_column");
 function word_pgc_sort_column($columns){
-  $columns['modified_list'] = 'date';
+  $columns['modified_list'] = 'modified_list';
   return $columns;
 }
+function modified_column_display( $column_name, $post_id ) {
+  if ( 'modified_list' != $column_name )
+    return;
+  echo the_modified_date();
+}
+add_action( 'manage_posts_custom_column', 'modified_column_display', 10, 2 );
 /*
  * word-structure
  */
