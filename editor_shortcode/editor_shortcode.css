@@ -11,8 +11,17 @@ div#decody_editor button {
   display: block;
   margin-bottom: 1em;
 }
+div#decody_editor input {
+  display: inline-block;
+  margin-bottom: 1em;
+}
+div#decody_editor span {
+  display: inline-block;
+  font-size: 0.7em;
+  margin-left: 1em;
+}
 
-div#decody_results {
+div#decody_results div#decody_output {
   border: 1px solid #CCC;
   width: 95%;
   padding-left: 0.5em;
@@ -20,6 +29,12 @@ div#decody_results {
 div#decody_results .warn {
   color: red;
   font-weight: bold;
+}
+div#decody_results .no-level {
+  font-size: 1.6em;
+}
+div#decody_results .hfw {
+  font-style: italic;
 }
 
 /*# sourceMappingURL=editor_shortcode.css.map */
