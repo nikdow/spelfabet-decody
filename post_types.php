@@ -103,6 +103,10 @@ function word_pgc_edit_columns($columns) {
     );
     return $columns;
 }
+add_filter ("manage_edit-word_pgc_sortable_columns", "word_pgc_sort_column");
+function word_pgc_sort_column($columns){
+  $columns = array('date' => 'date');
+}
 /*
  * word-structure
  */
