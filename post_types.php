@@ -99,13 +99,13 @@ function word_pgc_edit_columns($columns) {
         "cb" => '<input type="checkbox" />', // otherwise, no checkbox in the list of posts
         "title" => "Word",
         "excerpt" => "PGC",
-        "date" => "Modified"
+        "date" => "Published"
     );
     return $columns;
 }
-add_filter ("manage_word_pgc_sortable_columns", "word_pgc_sort_column");
+add_filter("manage_word_pgc_sortable_columns", "word_pgc_sort_column");
 function word_pgc_sort_column($columns){
-  $columns['date'] = 'date';
+  $columns['date'] = 'post_modified';
   return $columns;
 }
 /*
