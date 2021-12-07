@@ -152,7 +152,8 @@ function word_structure_edit_columns($columns) {
     $columns = array(
         "cb" => '<input type="checkbox" />',
         "title" => "Word",
-        "excerpt" => "Syllable Structure"
+        "excerpt" => "Syllable Structure",
+        "date" => "Published"
     );
     return $columns;
 }
