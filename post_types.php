@@ -114,6 +114,7 @@ function modified_column_display( $column_name, $post_id ) {
     return;
   echo the_modified_date();
 }
+add_action( 'manage_word_pgc_custom_column', 'modified_column_display', 10, 2 );
 /*
  * word-structure
  */
