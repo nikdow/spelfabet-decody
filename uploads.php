@@ -147,10 +147,10 @@ function handle_upload()
                             foreach( $post_filtered as $post ){
                                 wp_delete_post( $post->ID, true );
                             }
-                            continue 2;
+                            break 2;
                         } else {
                             if (count($post_filtered) === 1) { // exists, so ignore
-                                continue 2;
+                                break 2;
                             }
                         }
                         break;
@@ -160,12 +160,12 @@ function handle_upload()
                             $lines_read++;
                             if( $delete ){
                                 wp_delete_post( $posts[0]->ID, true );
-                                continue 2;
+                                break 2;
                             }
                             $post = $posts[0];
                             $post->post_excerpt = $payload;
                             wp_update_post($post);
-                            continue 2;
+                            break 2;
                         }
                         break;
                 }
@@ -199,7 +199,7 @@ function handle_upload()
                             wp_delete_post($post->ID, true);
                         }
                     }
-                    continue;
+                    break;
                 }
                 if( ! $delete ) {
                     $post = ['post_title' => trim($level), 'post_excerpt' => trim($payload), 'post_type' => $post_type, 'post_status' => 'publish', 'tax_input' => ['schema' => $schema]];
