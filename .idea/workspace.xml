@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="131d470c-2886-4bfe-b1f2-fe75e91cd37e" name="Changes" comment="decody project set up on laptop">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.php" beforeDir="false" afterPath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.php" afterDir="false" />
-    </list>
+    <list default="true" id="131d470c-2886-4bfe-b1f2-fe75e91cd37e" name="Changes" comment="schema special rules;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +75,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732701812014</updated>
-      <workItem from="1732701813036" duration="2140000" />
+      <workItem from="1732701813036" duration="2685000" />
     </task>
     <task id="LOCAL-00001" summary="decody project set up on laptop">
       <option name="closed" value="true" />
@@ -88,14 +85,42 @@
       <option name="project" value="LOCAL" />
       <updated>1732701880700</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="schema special rules;">
+      <option name="closed" value="true" />
+      <created>1732704201379</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732704201379</updated>
+    </task>
+    <task id="LOCAL-00003" summary="schema special rules;">
+      <option name="closed" value="true" />
+      <created>1732704218998</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732704218998</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="decody project set up on laptop" />
-    <option name="LAST_COMMIT_MESSAGE" value="decody project set up on laptop" />
+    <MESSAGE value="schema special rules;" />
+    <option name="LAST_COMMIT_MESSAGE" value="schema special rules;" />
   </component>
 </project>
