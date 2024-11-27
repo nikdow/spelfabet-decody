@@ -64,7 +64,7 @@ function decody_editor( $atts )
             <div id="decody_output"></div>
             <div>
                 <ul>
-                    <li><span class="no-level">larger words</span> could not be found in this teaching method</li>
+                    <li><span class="no-level">larger words</span> are not in our dictionary (yet)</li>
                     <li><span class="warn">red words</span> exceed the level chosen</li>
                     <li><span class="hfw">italicised words</span> are High Frequency Words in this teaching method</li>
                 </ul>
@@ -122,7 +122,7 @@ function editor_parse_text(){
         $pgc_level = false;
         $structure_level = false;
         if( count($pgcs)) {
-          if( $schema === 'phonic books') {
+          if( $term_name === 'phonic books') {
             if (end($pgcs) === "le") $structure_level = 20;
           }
 	        $sql        = "SELECT post_title FROM wp_posts p " .
@@ -137,14 +137,9 @@ function editor_parse_text(){
 		        $pgc_level = max( $pgc_level, (int) $p->post_title );
 	        }
         }
-        if( $schema === 'phonic books') {
-            if( ! $structure ) {
-                $structure_level = 22;
-            }
-        }
 
         if( $structure ) {
-            if( $schema === 'phonic books'){
+            if( $term_name === 'phonic books'){
                 $countV = array_reduce( str_split($structure), function( $acc, $letter){
                   $acc += $letter === "V" ? 1 : 0;
                   return $acc;
@@ -158,6 +153,12 @@ function editor_parse_text(){
 		        $term_taxonomy_id, $structure );
 	        $structure_level = (int) $wpdb->get_var( $sql );
         }
+        if( $term_name === 'phonic books') {
+            if( ! $structure_level ) {
+                $structure_level = 22;
+            }
+        }
+
         $level = max( $pgc_level, $structure_level );
         if( ! ( $pgc_level && $structure_level )) $level = false;
         $output[] = array( 'level' => ($hfw_level ? $hfw_level : $level ), 'isHFW' =>boolval( $hfw_level), 'word' => $word, 'structure_level' => $structure_level, 'pgc_level' => $pgc_level );
