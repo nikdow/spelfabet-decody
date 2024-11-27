@@ -6,27 +6,59 @@ add_shortcode('decody_editor', 'decody_editor');
 
 function decody_editor( $atts )
 {
-    $tags = get_tags( array(
+  global $post;
+    $tags = get_tags( array( // creates options in schema selector
             'taxonomy' => 'schema',
             'orderby' => 'name'
     ));
+    if(isset($_POST['schema'])) $schema = (int) $_POST['schema'];
+    else $schema = null;
+    $args = [
+      'post_type' => 'schema_levels',
+      'posts_per_page' => -1,
+      'order_by' => 'post_title',
+    ];
+    $levels = [];
+    $the_query = new WP_Query( $args );
+    if( $the_query->have_posts() ) {
+      while ($the_query->have_posts()) { // $post is one schema level
+        $the_query->the_post();
+        $taxon = get_the_terms($post, 'schema');
+        $taxon_id = $taxon[0]->term_id; // check this once we have > 1 schema
+        if( $taxon_id === $schema )
+          $levels[] = ['value'=> (int) $post->post_name, 'label'=>$post->post_excerpt ];
+      }
+    }
+    usort( $levels, function($a, $b) {
+      if( $a['value'] == $b['value'] ) return 0;
+      return $a['value'] > $b['value'] ? 1 : -1;
+    });
     wp_enqueue_style('editor_shortcode');
     wp_enqueue_script('editor_shortcode');
     ob_start();
     ?>
+      <form action="" method="POST">
         <div id="decody_editor">
             <textarea id="editor" placeholder="Enter or paste your text here"></textarea><br/>
-            <select id="schema">
+            <select name="schema" id="schema" onchange="this.form.submit()">
                 <option value="">Select Schema</option>
                 <?php
                 foreach( $tags as $tag ){
-                    ?><option value="<?=$tag->term_id?>"><?=$tag->name?></option><?php
+                    ?><option value="<?=$tag->term_id?>" <?= $tag->term_id===$schema ? "SELECTED" : "";?>><?=$tag->name?></option><?php
                 }
                 ?>
             </select>
-            <input id="target_level" type="number" placeholder="Target level"><span>Leave blank for no target</span>
+          <select id="target_level">
+            <?php
+            foreach( $levels as $level ){
+              ?><option value="<?=$level['value']?>" <?= $level['value']===$schema ? "SELECTED" : "";?>><?=$level['label']?></option><?php
+            }
+            ?>
+          </select>
+            <!--<input id="target_level" type="number" placeholder="Target level"><span>Leave blank for no target</span>-->
             <button type="button" onclick="update()">check it out</button><br/>
         </div>
+      </form>
         <h3>Results:</h3>
         <div id="decody_results">
             <div id="decody_output"></div>
