@@ -90,6 +90,9 @@ function editor_parse_text(){
         $pgc_level = false;
         $structure_level = false;
         if( count($pgcs)) {
+          if( $schema === 'phonic books') {
+            if (end($pgcs) === "le") $structure_level = 20;
+          }
 	        $sql        = "SELECT post_title FROM wp_posts p " .
 	                      "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
 	                      "WHERE post_type='schema_pgc' " .
@@ -102,15 +105,28 @@ function editor_parse_text(){
 		        $pgc_level = max( $pgc_level, (int) $p->post_title );
 	        }
         }
+        if( $schema === 'phonic books') {
+            if( ! $structure ) {
+                $structure_level = 22;
+            }
+        }
+
         if( $structure ) {
+            if( $schema === 'phonic books'){
+                $countV = array_reduce( str_split($structure), function( $acc, $letter){
+                  $acc += $letter === "V" ? 1 : 0;
+                  return $acc;
+                }, 0);
+                if( $countV === 2 ) $structure_level = 17;
+            }
 	        $sql             = $wpdb->prepare( "SELECT post_title FROM wp_posts p " .
 	                                           "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
 	                                           "WHERE post_type='schema_structure' AND post_excerpt=%s AND `post_status`='publish' " .
 	                                           "AND r.object_id IS NOT NULL;",
 		        $term_taxonomy_id, $structure );
 	        $structure_level = (int) $wpdb->get_var( $sql );
-	        $level           = max( $pgc_level, $structure_level );
         }
+        $level = max( $pgc_level, $structure_level );
         if( ! ( $pgc_level && $structure_level )) $level = false;
         $output[] = array( 'level' => ($hfw_level ? $hfw_level : $level ), 'isHFW' =>boolval( $hfw_level), 'word' => $word, 'structure_level' => $structure_level, 'pgc_level' => $pgc_level );
     }
