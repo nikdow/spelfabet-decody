@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="131d470c-2886-4bfe-b1f2-fe75e91cd37e" name="Changes" comment="schema special rules;" />
+    <list default="true" id="131d470c-2886-4bfe-b1f2-fe75e91cd37e" name="Changes" comment="schema special rules;">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/spelfabet-decody.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/spelfabet-decody.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.php" beforeDir="false" afterPath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,19 +21,20 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "nikdow"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nikdow&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/nikdow/spelfabet-decody.git",
-    "accountId": "dab7fe15-185a-4bc4-a9c1-330c9e361316"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nikdow/spelfabet-decody.git&quot;,
+    &quot;accountId&quot;: &quot;dab7fe15-185a-4bc4-a9c1-330c9e361316&quot;
   }
-}]]></component>
+}</component>
   <component name="PhpDebugGeneral" detect_path_mappings_from_deployment_configuration="false" ignore_connections_through_unregistered_servers="false" listening_started="true" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
   <component name="PhpServers">
     <servers>
@@ -35,9 +42,9 @@
     </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\wamp\bin\apache\apache2.4.59\bin\php.ini" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2pQcbZZMD7dyHLZn5SW91QGD0ye" />
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
@@ -46,19 +53,21 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php.debug",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp/www/wordpress/wp-content/spelfabet.wordpress/plugins/spelfabet-decody&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,7 +84,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732701812014</updated>
-      <workItem from="1732701813036" duration="2685000" />
+      <workItem from="1732701813036" duration="2993000" />
+      <workItem from="1732780480788" duration="107000" />
+      <workItem from="1732780657798" duration="53000" />
+      <workItem from="1732780712531" duration="1360000" />
     </task>
     <task id="LOCAL-00001" summary="decody project set up on laptop">
       <option name="closed" value="true" />
@@ -101,7 +113,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732704218998</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="schema special rules;">
+      <option name="closed" value="true" />
+      <created>1732704804991</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732704804992</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,5 +142,19 @@
     <MESSAGE value="decody project set up on laptop" />
     <MESSAGE value="schema special rules;" />
     <option name="LAST_COMMIT_MESSAGE" value="schema special rules;" />
+  </component>
+  <component name="WordPressConfiguration" enabled="true">
+    <wordpressPath>C:\wamp\www\wordpress</wordpressPath>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/editor_shortcode/editor_shortcode.php</url>
+          <line>127</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

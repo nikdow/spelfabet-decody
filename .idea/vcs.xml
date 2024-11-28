@@ -2,5 +2,10 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../../configs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../lga-finder" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../sendfile" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../spelfabet-copyright" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../themes/spelfabet-2024" vcs="Git" />
   </component>
 </project>

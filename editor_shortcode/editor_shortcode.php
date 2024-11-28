@@ -120,10 +120,12 @@ function editor_parse_text(){
             $term_taxonomy_id, $word);
         $hfw_level = (int) $wpdb->get_var( $sql );
         $pgc_level = false;
-        $structure_level = false;
+        $structure_level = 0;
         if( count($pgcs)) {
           if( $term_name === 'phonic books') {
-            if (end($pgcs) === "le") $structure_level = 20;
+              $lastSyllable = end($pgcs);
+              $grapheme = explode(":", $lastSyllable)[0];
+            if (strtolower($grapheme) === "le") $structure_level = 20;
           }
 	        $sql        = "SELECT post_title FROM wp_posts p " .
 	                      "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
@@ -141,7 +143,7 @@ function editor_parse_text(){
         if( $structure ) {
             if( $term_name === 'phonic books'){
                 $countV = array_reduce( str_split($structure), function( $acc, $letter){
-                  $acc += $letter === "V" ? 1 : 0;
+                  $acc += strtolower($letter) === "v" ? 1 : 0;
                   return $acc;
                 }, 0);
                 if( $countV === 2 ) $structure_level = 17;
@@ -151,7 +153,7 @@ function editor_parse_text(){
 	                                           "WHERE post_type='schema_structure' AND post_excerpt=%s AND `post_status`='publish' " .
 	                                           "AND r.object_id IS NOT NULL;",
 		        $term_taxonomy_id, $structure );
-	        $structure_level = (int) $wpdb->get_var( $sql );
+	        $structure_level = max( (int) $wpdb->get_var( $sql ), $structure_level);
         }
         if( $term_name === 'phonic books') {
             if( ! $structure_level ) {
