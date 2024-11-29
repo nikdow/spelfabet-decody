@@ -92,9 +92,10 @@ function editor_parse_text(){
     $term_taxonomy_id = $term_taxonomy->term_taxonomy_id;
     $taxonomy_name = $term_taxonomy->taxonomy;
     $text = stripslashes($_POST['text']);
-    $words = explode(" ", $text);
+    $sep = " \n\t,";
+    $word = strtok($text, $sep);
     $output = [];
-    foreach( $words as $word ){
+    while( $word !== false ){
         $sql = $wpdb->prepare( "SELECT post_excerpt, post_type FROM wp_posts p " .
             "WHERE `post_title`=%s " .
             "AND `post_type` IN ('word_pgc', 'word_structure') " .
@@ -164,6 +165,7 @@ function editor_parse_text(){
         $level = max( $pgc_level, $structure_level );
         if( ! ( $pgc_level && $structure_level )) $level = false;
         $output[] = array( 'level' => ($hfw_level ? $hfw_level : $level ), 'isHFW' =>boolval( $hfw_level), 'word' => $word, 'structure_level' => $structure_level, 'pgc_level' => $pgc_level );
+        $word = strtok( $sep );
     }
     $response = array( 'output' => $output, 'hardest' => 'antidisciplinarianestablishmentism', 'hard_level'=>65);
     wp_send_json( $response );
