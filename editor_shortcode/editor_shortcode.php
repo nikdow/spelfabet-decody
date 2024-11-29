@@ -38,6 +38,9 @@ function decody_editor( $atts )
     ob_start();
     ?>
       <form action="" method="POST">
+        <div>
+          Apostrophes must be standard, i.e. ' don't use "smart" apostrophes like ‘ or ’
+        </div>
         <div id="decody_editor">
             <textarea id="editor" placeholder="Enter or paste your text here"></textarea><br/>
             <select name="schema" id="schema" onchange="this.form.submit()">
@@ -92,7 +95,7 @@ function editor_parse_text(){
     $term_taxonomy_id = $term_taxonomy->term_taxonomy_id;
     $taxonomy_name = $term_taxonomy->taxonomy;
     $text = stripslashes($_POST['text']);
-    $sep = " \n\t,";
+    $sep = " \n\t,.?";
     $word = strtok($text, $sep);
     $output = [];
     while( $word !== false ){
