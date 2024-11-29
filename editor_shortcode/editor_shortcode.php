@@ -64,7 +64,7 @@ function decody_editor( $atts )
             <div id="decody_output"></div>
             <div>
                 <ul>
-                    <li><span class="no-level">larger words</span> could not be found in this teaching method</li>
+                    <li><span class="no-level">larger words</span> are not in our dictionary (yet)</li>
                     <li><span class="warn">red words</span> exceed the level chosen</li>
                     <li><span class="hfw">italicised words</span> are High Frequency Words in this teaching method</li>
                 </ul>
@@ -120,8 +120,13 @@ function editor_parse_text(){
             $term_taxonomy_id, $word);
         $hfw_level = (int) $wpdb->get_var( $sql );
         $pgc_level = false;
-        $structure_level = false;
+        $structure_level = 0;
         if( count($pgcs)) {
+          if( $term_name === 'phonic books') {
+              $lastSyllable = end($pgcs);
+              $grapheme = explode(":", $lastSyllable)[0];
+            if (strtolower($grapheme) === "le") $structure_level = 20;
+          }
 	        $sql        = "SELECT post_title FROM wp_posts p " .
 	                      "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
 	                      "WHERE post_type='schema_pgc' " .
@@ -134,15 +139,29 @@ function editor_parse_text(){
 		        $pgc_level = max( $pgc_level, (int) $p->post_title );
 	        }
         }
+
         if( $structure ) {
+            if( $term_name === 'phonic books'){
+                $countV = array_reduce( str_split($structure), function( $acc, $letter){
+                  $acc += strtolower($letter) === "v" ? 1 : 0;
+                  return $acc;
+                }, 0);
+                if( $countV === 2 ) $structure_level = 17;
+            }
 	        $sql             = $wpdb->prepare( "SELECT post_title FROM wp_posts p " .
 	                                           "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
 	                                           "WHERE post_type='schema_structure' AND post_excerpt=%s AND `post_status`='publish' " .
 	                                           "AND r.object_id IS NOT NULL;",
 		        $term_taxonomy_id, $structure );
-	        $structure_level = (int) $wpdb->get_var( $sql );
-	        $level           = max( $pgc_level, $structure_level );
+	        $structure_level = max( (int) $wpdb->get_var( $sql ), $structure_level);
         }
+        if( $term_name === 'phonic books') {
+            if( ! $structure_level ) {
+                $structure_level = 22;
+            }
+        }
+
+        $level = max( $pgc_level, $structure_level );
         if( ! ( $pgc_level && $structure_level )) $level = false;
         $output[] = array( 'level' => ($hfw_level ? $hfw_level : $level ), 'isHFW' =>boolval( $hfw_level), 'word' => $word, 'structure_level' => $structure_level, 'pgc_level' => $pgc_level );
     }
