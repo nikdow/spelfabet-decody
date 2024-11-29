@@ -36,6 +36,11 @@ function spelfabet_decody_uploads(){
             <?php submit_button( "upload CSV file")?>
         </form>
         <table class="bordered">
+          <tr>
+            <th colspan="2">
+              First row of your input is ignored, you can put column headings there but they will be discarded
+            </th>
+          </tr>
             <tr>
                 <th>Data type</th>
                 <th>Columns</th>
