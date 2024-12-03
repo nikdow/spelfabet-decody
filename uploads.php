@@ -38,7 +38,8 @@ function spelfabet_decody_uploads(){
         <table class="bordered">
           <tr>
             <th colspan="2">
-              First row of your input is ignored, you can put column headings there but they will be discarded
+              First row of your input is ignored, you can put column headings there but they will be discarded<br/>
+              Max approx 500 lines per upload to avoid server time-out
             </th>
           </tr>
             <tr>
@@ -61,7 +62,7 @@ function spelfabet_decody_uploads(){
                 <td>level as integer, PGC as "t:tap" </td>
             </tr>
             <tr>
-                <td>Schema level</td>
+                <td>Schema structure</td>
                 <td>level as integer, structure as "VCC"</td>
             </tr>
             <tr>
@@ -69,7 +70,7 @@ function spelfabet_decody_uploads(){
                 <td>level as integer, HFW</td>
             </tr>
             <tr>
-                <td>Schema Levels</td>
+                <td>Schema Level Descriptions</td>
                 <td>level as integer, description of level</td>
             </tr>
         </table>
