@@ -64,5 +64,10 @@ function order_decody( $query ){
             $query->set( 'order', 'ASC');
             break;
     }
-
+}
+// include schema filters
+$dir = opendir(plugin_dir_path( __FILE__ ) . '/schema');
+while( $file = readdir($dir)){
+  if( in_array( $file, ['.','..'])) continue;
+  include __DIR__ . '/schema/' . $file;
 }
