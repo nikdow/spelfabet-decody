@@ -39,7 +39,7 @@ function decody_editor( $atts )
     ?>
       <form action="" method="POST">
         <div id="decody_editor">
-            <textarea name="textInput" id="editor" placeholder="Enter or paste your text here"><?=stripslashes($_POST['textInput'])?></textarea><br/>
+            <textarea name="textInput" id="editor" placeholder="Enter or paste your text here"><?=stripslashes(array_key_exists('textInput', $_POST) ? $_POST['textInput'] : '')?></textarea><br/>
             <select name="schema" id="schema" onchange="this.form.submit()">
                 <option value="">Select Schema</option>
                 <?php
@@ -128,12 +128,8 @@ function editor_parse_text(){
         $pgc_level = false;
         $structure_level = 0;
         if( count($pgcs)) {
-          if( $term_name === 'phonic books') {
-              $lastSyllable = end($pgcs);
-              $grapheme = explode(":", $lastSyllable)[0];
-            if (strtolower($grapheme) === "le") $structure_level = 20;
-          }
-	        $sql        = "SELECT post_title FROM wp_posts p " .
+          $structure_level = apply_filters( 'pgcs_min', $structure_level, $term_name, $pgcs, $pgc_level );
+	        $sql        = "SELECT post_title, post_excerpt FROM wp_posts p " .
 	                      "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
 	                      "WHERE post_type='schema_pgc' " .
 	                      "AND post_excerpt IN (" . implode( ",", array_fill( 0, count( $pgcs ), '%s' ) ) . ") " .
@@ -143,17 +139,15 @@ function editor_parse_text(){
 	        $pgc_levels = $wpdb->get_results( $query );
 	        foreach ( $pgc_levels as $p ) {
 		        $pgc_level = max( $pgc_level, (int) $p->post_title );
+            $pgcs = array_filter( $pgcs, function($pgc) use ($p){
+              return $pgc !== $p->post_excerpt;
+            });
 	        }
+          if( count($pgcs)) $pgc_level = 99999; // some PGCs not found in schema
         }
 
         if( $structure ) {
-            if( $term_name === 'phonic books'){
-                $countV = array_reduce( str_split($structure), function( $acc, $letter){
-                  $acc += strtolower($letter) === "v" ? 1 : 0;
-                  return $acc;
-                }, 0);
-                if( $countV === 2 ) $structure_level = 17;
-            }
+          $structure_level = apply_filters('structure_min', $structure_level, $term_name, $structure );
 	        $sql             = $wpdb->prepare( "SELECT post_title FROM wp_posts p " .
 	                                           "LEFT JOIN wp_term_relationships r ON r.object_id=p.`ID` AND r.`term_taxonomy_id`=%d " .
 	                                           "WHERE post_type='schema_structure' AND post_excerpt=%s AND `post_status`='publish' " .
@@ -161,10 +155,8 @@ function editor_parse_text(){
 		        $term_taxonomy_id, $structure );
 	        $structure_level = max( (int) $wpdb->get_var( $sql ), $structure_level);
         }
-        if( $term_name === 'phonic books') {
-            if( ! $structure_level ) {
-                $structure_level = 22;
-            }
+        if( ! $structure_level ){
+          $structure_level = apply_filters('no_structure', $structure_level, $term_name, $structure);
         }
 
         $level = max( $pgc_level, $structure_level );

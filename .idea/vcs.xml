@@ -3,6 +3,10 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../../../configs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../bikefun.wordpress/plugins/bikefun-event-calendar" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../bikefun.wordpress/plugins/bikefun-events" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../bikefun.wordpress/themes/twentythirteen-child" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../../bikemelbourne.wordpress/themes/suffusion-mbug" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../lga-finder" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../sendfile" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../spelfabet-copyright" vcs="Git" />

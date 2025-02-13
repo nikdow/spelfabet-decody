@@ -4,9 +4,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="131d470c-2886-4bfe-b1f2-fe75e91cd37e" name="Changes" comment="schema special rules;">
+    <list default="true" id="131d470c-2886-4bfe-b1f2-fe75e91cd37e" name="Changes" comment="include schema filters">
+      <change afterPath="$PROJECT_DIR$/../../../../configs/bikemelbourne" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schema/phonicBooks.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/schema/phonicsPlusVicDET.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/bikemelbourne.org" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/bmwskiclub.asn.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/bmwskiclub.asn.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/bogongweb.cbdweb.net" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/crag.asn.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/crag.asn.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/doc.cbdweb.net" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/doc.cbdweb.net" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/gunyang.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/gunyang.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/kpsc1861.org.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/kpsc1861.org.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/patscherkofel.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/patscherkofel.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/sca.cbdweb.net" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/theavenueskiclub.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/theavenueskiclub.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/victorian-cycling-campaign.org" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/victorian-cycling-campaign.org" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.bikefun.org" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.cbdweb.net" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.cbdweb.net" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.freestylecyclists.org" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.freestylecyclists.org" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.gunumalodge.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.gunumalodge.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.kongoola.com" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.kongoola.com" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.koomerang.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.koomerang.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.marouka.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.marouka.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.olos.org.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.olos.org.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.otu.asn.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.otu.asn.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.samanthalord.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.samanthalord.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.skilib.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.skilib.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.skipegasus.com.au" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.snowaccommodation.info" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.snowaccommodation.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.spelfabet.com.au" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.stgeorgealpine.com.au" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.trapdoor.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.trapdoor.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../configs/www.tredor.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.tredor.com.au" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lga-finder/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lga-finder/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/spelfabet-decody.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/spelfabet-decody.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.php" beforeDir="false" afterPath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.php" afterDir="false" />
@@ -20,6 +52,11 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/../spelfabet-copyright" value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
@@ -41,7 +78,11 @@
       <server host="spelfabet.wordpress" id="639adccc-1abc-4380-b203-3d98c80aae3e" name="spelfabet.wordpress" />
     </servers>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\wamp\bin\apache\apache2.4.59\bin\php.ini" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/../wordpress" />
+    </include_path>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -53,26 +94,34 @@
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp/www/wordpress/wp-content/spelfabet.wordpress/plugins/spelfabet-decody&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;web-ide.project.structure&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/wamp/www/wordpress/wp-content/spelfabet.wordpress/plugins/spelfabet-decody/schema",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "web-ide.project.structure",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\wordpress\wp-content\spelfabet.wordpress\plugins\spelfabet-decody\schema" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\wordpress\wp-content\spelfabet.wordpress\plugins\spelfabet-decody\schema" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.19416.23" />
-        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.19416.23" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PS-241.18034.69" />
+        <option value="bundled-php-predefined-ba97393d7c68-48a1a656d44e-com.jetbrains.php.sharedIndexes-PS-241.18034.69" />
       </set>
     </attachedChunks>
   </component>
@@ -88,6 +137,13 @@
       <workItem from="1732780480788" duration="107000" />
       <workItem from="1732780657798" duration="53000" />
       <workItem from="1732780712531" duration="1360000" />
+      <workItem from="1732853999071" duration="36000" />
+      <workItem from="1732854036543" duration="1406000" />
+      <workItem from="1732857401265" duration="7219000" />
+      <workItem from="1733185093830" duration="2002000" />
+      <workItem from="1733191744409" duration="6943000" />
+      <workItem from="1733877535571" duration="1775000" />
+      <workItem from="1739419578585" duration="4502000" />
     </task>
     <task id="LOCAL-00001" summary="decody project set up on laptop">
       <option name="closed" value="true" />
@@ -121,7 +177,55 @@
       <option name="project" value="LOCAL" />
       <updated>1732704804992</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="split into words handles line breaks etc">
+      <option name="closed" value="true" />
+      <created>1732860050653</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732860050653</updated>
+    </task>
+    <task id="LOCAL-00006" summary="split into words handles line breaks etc">
+      <option name="closed" value="true" />
+      <created>1732860434957</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732860434957</updated>
+    </task>
+    <task id="LOCAL-00007" summary="split into words handles line breaks etc">
+      <option name="closed" value="true" />
+      <created>1733187575100</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733187575100</updated>
+    </task>
+    <task id="LOCAL-00008" summary="handle smart quotes;&#10;keep text when select schema;">
+      <option name="closed" value="true" />
+      <created>1733192873934</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733192873934</updated>
+    </task>
+    <task id="LOCAL-00009" summary="FPDF composer update;">
+      <option name="closed" value="true" />
+      <created>1733878823689</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733878823689</updated>
+    </task>
+    <task id="LOCAL-00010" summary="include schema filters">
+      <option name="closed" value="true" />
+      <created>1733879422170</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733879422170</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,20 +245,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="decody project set up on laptop" />
     <MESSAGE value="schema special rules;" />
-    <option name="LAST_COMMIT_MESSAGE" value="schema special rules;" />
+    <MESSAGE value="Add upload format detail;" />
+    <MESSAGE value="split into words handles line breaks etc" />
+    <MESSAGE value="handle smart quotes;&#10;keep text when select schema;" />
+    <MESSAGE value="FPDF composer update;" />
+    <MESSAGE value="include schema filters" />
+    <option name="LAST_COMMIT_MESSAGE" value="include schema filters" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>C:\wamp\www\wordpress</wordpressPath>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/editor_shortcode/editor_shortcode.php</url>
-          <line>127</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
