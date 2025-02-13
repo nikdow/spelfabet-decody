@@ -101,6 +101,7 @@ function editor_parse_text(){
     $word = strtok($text, $sep);
     $output = [];
     while( $word !== false ){
+        $narrative = [];
         $sql = $wpdb->prepare( "SELECT post_excerpt, post_type FROM wp_posts p " .
             "WHERE `post_title`=%s " .
             "AND `post_type` IN ('word_pgc', 'word_structure') " .
@@ -125,6 +126,10 @@ function editor_parse_text(){
             "WHERE post_type='schema_hfw' AND post_excerpt=%s AND r.object_id IS NOT NULL AND `post_status`='publish';",
             $term_taxonomy_id, $word);
         $hfw_level = (int) $wpdb->get_var( $sql );
+        if( $hfw_level ) {
+          $level = decody_getSchemaLevelTitle($hfw_level);
+          if ($level) $narrative[] = "High Frequency Word level: " . $level;
+        }
         $pgc_level = false;
         $structure_level = 0;
         if( count($pgcs)) {
@@ -143,7 +148,13 @@ function editor_parse_text(){
               return $pgc !== $p->post_excerpt;
             });
 	        }
-          if( count($pgcs)) $pgc_level = 99999; // some PGCs not found in schema
+          if( count($pgcs)) {
+            $pgc_level = 99999; // some PGCs not found in schema
+            $narrative[] = "PGCs not in this method: " . implode( ",", $pgcs);
+          } elseif( ! $hfw_level ) {
+            $ln = decody_getSchemaLevelTitle($pgc_level);
+            $narrative[] = "PGC Level: " . $ln;
+          }
         }
 
         if( $structure ) {
@@ -158,13 +169,22 @@ function editor_parse_text(){
         if( ! $structure_level ){
           $structure_level = apply_filters('no_structure', $structure_level, $term_name, $structure);
         }
+        if( $structure_level && ! $hfw_level ) {
+          $level = decody_getSchemaLevelTitle($structure_level);
+          $narrative[] = "Structure level: " . $level;
+        }
 
         $level = max( $pgc_level, $structure_level );
         if( ! ( $pgc_level && $structure_level )) $level = false;
-        $output[] = array( 'level' => ($hfw_level ? $hfw_level : $level ), 'isHFW' =>boolval( $hfw_level), 'word' => $word, 'structure_level' => $structure_level, 'pgc_level' => $pgc_level );
+        $output[] = array( 'level' => ($hfw_level ? $hfw_level : $level ), 'isHFW' =>boolval( $hfw_level), 'word' => $word, 'n' => implode('; ', $narrative) );
         $word = strtok( $sep );
     }
     $response = array( 'output' => $output, 'hardest' => 'antidisciplinarianestablishmentism', 'hard_level'=>65);
     wp_send_json( $response );
     wp_die();
+}
+function decody_getSchemaLevelTitle( int $level ): string{
+  global $wpdb;
+  $sql = $wpdb->prepare("SELECT post_excerpt FROM wp_posts p WHERE post_type='schema_levels' AND post_name = %d", $level);
+  return $wpdb->get_var($sql);
 }

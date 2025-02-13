@@ -37,7 +37,8 @@
       <change beforePath="$PROJECT_DIR$/../../../../configs/www.tredor.com.au" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../configs/www.tredor.com.au" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lga-finder/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lga-finder/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/schema/phonicsPlusVicDET.php" beforeDir="false" afterPath="$PROJECT_DIR$/schema/phonicsPlusVicDET.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.js" beforeDir="false" afterPath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.php" beforeDir="false" afterPath="$PROJECT_DIR$/editor_shortcode/editor_shortcode.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +140,7 @@
       <workItem from="1733185093830" duration="2002000" />
       <workItem from="1733191744409" duration="6943000" />
       <workItem from="1733877535571" duration="1775000" />
-      <workItem from="1739419578585" duration="5484000" />
+      <workItem from="1739419578585" duration="9813000" />
     </task>
     <task id="LOCAL-00001" summary="decody project set up on laptop">
       <option name="closed" value="true" />
