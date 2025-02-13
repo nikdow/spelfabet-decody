@@ -9,6 +9,7 @@ add_filter( 'structure_min', function ($structure_level, $term_name, $structure)
       2 => 11,
       3 => 21,
       4 => 27,
+      default => 1,
     };
   }
   return $structure_level;
