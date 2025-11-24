@@ -64,9 +64,9 @@ function decody_editor( $atts )
             <div id="decody_output"></div>
             <div>
                 <ul>
-                    <li><span class="no-level">larger words</span> are not in our dictionary (yet)</li>
-                    <li><span class="warn">red words</span> exceed the level chosen</li>
-                    <li><span class="hfw">italicised words</span> are High Frequency Words in this teaching method</li>
+                    <li><span class="no-level">larger words</span> are not in our dictionary (yet) <span id="no-level"></span></li>
+                    <li><span class="warn">red words</span> exceed the level chosen <span id="warn"></span></li>
+                    <li><span class="hfw">italicised words</span> are High Frequency Words in this teaching method <span id="hfw"></span></li>
                 </ul>
             </div>
         </div>

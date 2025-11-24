@@ -3,13 +3,16 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../../../configs" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../../bikefun.wordpress/plugins/bikefun-event-calendar" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../../bikefun.wordpress/plugins/bikefun-events" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../../bikefun.wordpress/themes/twentythirteen-child" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../../../bikemelbourne.wordpress/themes/suffusion-mbug" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../lga-finder" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../sendfile" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../otu-newsletter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../skilodge-sidebar-login" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../spelfabet-copyright" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../themes/bikefun-twentythirteen-child" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../themes/documentation-suburbia-child" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../themes/sailing-child" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../themes/simpleblock" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../themes/simpleblock-spelfabet" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../../themes/spelfabet-2024" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../themes/spelfabet-copyright" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../themes/wp-external-auth" vcs="Git" />
   </component>
 </project>
